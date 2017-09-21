@@ -13,17 +13,17 @@ namespace CognitiveFunctions
 {
     public class BlurFaces
     {
-        private static string _faceAPIKey = "1d6e182e79c74fa6ac7817c1303a3e69";
+        private static string _faceAPIKey = "b87c543ada804457a979e76adaafb15d  ";
         // The name of the source image.
-        const string _sourceImage = @"C:\Users\adamt\Pictures\LA Hacks Pics\DSC02450.JPG";
+        const string _sourceImage = @"./images/DSC02450.JPG";
 
         // The name of the destination image
-        const string _destinationImage = @"C:\Users\adamt\Pictures\LA Hacks Pics\DSC02450Blurred.JPG";
+        const string _destinationImage = @"./images/DSC02450Blurred.JPG";
         private static List<string> _emoticons = new List<string>() {
-            @"C:\Users\adamt\Pictures\LA Hacks Pics\smileemoji.png",
-            @"C:\Users\adamt\Pictures\LA Hacks Pics\1afawkes.png",
-            @"C:\Users\adamt\Pictures\LA Hacks Pics\crying happy.png",
-            @"C:\Users\adamt\Pictures\LA Hacks Pics\1apileOfPoo.png"};
+            @"smileemoji.png",
+            @"1afawkes.png",
+            @"crying happy.png",
+            @"1apileOfPoo.png"};
         public static void Process()
         {
 
@@ -64,10 +64,12 @@ namespace CognitiveFunctions
                 {
                     using (FileStream output = File.OpenWrite(destinationImage))
                     {
-                        List<Image> emoticons = new List<Image>();
-                        _emoticons.ForEach(o => emoticons.Add(new Image(o)));
+                        
 
-                        var image = new Image<Color>(stream);
+                        var emoticons = new List<Image<Rgba32>>();
+                        _emoticons.ForEach(o => emoticons.Add(Image.Load(o)));
+
+                        Image<Rgba32> image = Image.Load<Rgba32>(stream);
                         Random random = new Random(DateTime.Now.Millisecond);
                         // Blur every detected face
                         foreach (var faceRect in faceRects)

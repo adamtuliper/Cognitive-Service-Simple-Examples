@@ -28,7 +28,7 @@ namespace CognitiveFunctions
         /// <summary>
         /// Path to file with JSON inputs.
         /// </summary>
-        private const string InputFile = "<path to your input file>";
+        //private const string InputText = "<path to your input file>";
 
         /// <summary>
         /// How many minutes to poll before timeout.
@@ -51,7 +51,7 @@ namespace CognitiveFunctions
                 client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
 
                 // Request body.
-                var byteData = File.ReadAllBytes(InputFile);
+                var byteData = Encoding.ASCII.GetBytes("I had a wonderful experience! The rooms were wonderful and the staff was helpful.");
 
                 // For list of optional request parameters, please visit the documentation pages.
                 var uri = "text/analytics/v2.0/topics";

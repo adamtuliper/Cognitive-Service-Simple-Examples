@@ -19,7 +19,7 @@ namespace CognitiveFunctions
         /// As of now, you can get keys here (though that may change location) and they can take 10 mins or so to become active
         /// https://www.microsoft.com/cognitive-services/en-us/subscriptions?displayClass=subscription-free-trials
         /// </summary>
-        private const string AccountKey = "8139a8831c13424cae1cf26a9f8efe98 ";
+        private const string AccountKey = "1b389f9abbcd4e5a98f83b466f5bd3b2 ";
 
         /// <summary>
         /// Maximum number of languages to return in language detection API.
